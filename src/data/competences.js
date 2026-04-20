@@ -4,39 +4,27 @@
 const competences = [
   {
     id: 1,
-    icone: "💻",
+    icone: "🌐",
     titre: "Développement Web",
-    details: "HTML, CSS, JavaScript, React, Node.js"
+    details: "HTML, CSS, JavaScript, TypeScript, PHP, React"
   },
   {
     id: 2,
-    icone: "🐍",
-    titre: "Python",
-    details: "Programmation orientée objet, frameworks web, analyse de données"
+    icone: "💻",
+    titre: "Programmation",
+    details: "Python, Java, C"
   },
   {
     id: 3,
-    icone: "☕",
-    titre: "Java",
-    details: "Applications desktop, développement Android, Spring Boot"
+    icone: "🔗",
+    titre: "Réseaux",
+    details: "IPv4, DHCP, DNS, Pare-feu, Wireshark"
   },
   {
     id: 4,
     icone: "🗄️",
     titre: "Bases de données",
-    details: "SQL, MySQL, MongoDB, conception de schémas"
-  },
-  {
-    id: 5,
-    icone: "🔧",
-    titre: "Outils & Versionnement",
-    details: "Git, GitHub, Docker, VS Code, Linux"
-  },
-  {
-    id: 6,
-    icone: "🎨",
-    titre: "UI/UX Design",
-    details: "Maquettes, wireframes, design responsive, Figma"
+    details: "PostgreSQL, MariaDB"
   }
 ];
 

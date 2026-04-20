@@ -10,17 +10,27 @@ import Competences from "./components/Competences";
 import Projets     from "./components/Projets";
 import Contact     from "./components/Contact";
 import Footer      from "./components/Footer";
+import Particles   from "./components/Particles";
 
 function App() {
   // useState pour le menu mobile, passé en props à Navbar
   const [menuOuvert, setMenuOuvert] = useState(false);
 
   return (
-    <div>
-      {/* Les 3 cercles animés du fond */}
-      <div className="bg-cercle cercle-1"></div>
-      <div className="bg-cercle cercle-2"></div>
-      <div className="bg-cercle cercle-3"></div>
+    <div className="app">
+      <div className="background-root">
+        <Particles
+          particleColors={["#0d67de", "#00bcd4", "#7c3aed"]}
+          particleCount={3000}
+          particleSpread={12}
+          speed={0.2}
+          particleBaseSize={80}
+          moveParticlesOnHover
+          alphaParticles
+          disableRotation={false}
+          pixelRatio={1}
+        />
+      </div>
 
       {/* On place chaque composant dans l'ordre */}
       <Navbar menuOuvert={menuOuvert} setMenuOuvert={setMenuOuvert} />
