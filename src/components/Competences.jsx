@@ -2,7 +2,8 @@ import { useState } from "react";
 import competences from "../data/competences";
 
 // Une ligne technologie : logo (ou emoji de repli) + barre de niveau
-function TechItem({ tech, index }) {
+// `but` vaut "but1" ou "but2" et sélectionne quel pourcentage piloter la barre
+function TechItem({ tech, index, but }) {
   return (
     <div className="tech-item" style={{ animationDelay: `${index * 0.06}s` }}>
       <div className="tech-icone">
@@ -14,36 +15,69 @@ function TechItem({ tech, index }) {
       </div>
       <span className="tech-nom">{tech.nom}</span>
       <div className="tech-niveau-bar">
-        <div
-          className="tech-niveau-fill"
-          style={{ width: `${(tech.niveau / 5) * 100}%` }}
-        />
+        <div className="tech-niveau-fill" style={{ width: `${tech[but]}%` }} />
       </div>
     </div>
   );
 }
 
-// Une carte UE en accordéon
+// Une carte UE en accordéon, avec un sélecteur BUT1 / BUT2 par carte
 function UECard({ ue }) {
   const [ouvert, setOuvert] = useState(false);
+  const [but, setBut] = useState("but2");
 
   return (
     <div className={`ue-card ${ouvert ? "ue-card--ouvert" : ""}`}>
-      <button
+      <div
         className="ue-header"
+        role="button"
+        tabIndex={0}
         onClick={() => setOuvert(!ouvert)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            setOuvert(!ouvert);
+          }
+        }}
         aria-expanded={ouvert}
       >
-        <span className="ue-badge">{ue.code}</span>
-        <span className="ue-titre">{ue.titre}</span>
-        <span className="ue-chevron">▾</span>
-      </button>
+        <div className="ue-header-top">
+          <span className="ue-badge">{ue.code}</span>
+          <span className="ue-titre">{ue.titre}</span>
+          <span className="ue-chevron">▾</span>
+        </div>
+
+        <div className="ue-header-bottom">
+          <span className="but-toggle" role="group" aria-label="Choisir l'année">
+            <button
+              type="button"
+              className={`but-toggle-btn ${but === "but1" ? "but-toggle-btn--actif" : ""}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                setBut("but1");
+              }}
+            >
+              BUT1
+            </button>
+            <button
+              type="button"
+              className={`but-toggle-btn ${but === "but2" ? "but-toggle-btn--actif" : ""}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                setBut("but2");
+              }}
+            >
+              BUT2
+            </button>
+          </span>
+        </div>
+      </div>
 
       {ouvert && (
         <div className="ue-body">
           <div className="ue-tech-grid">
             {ue.technologies.map((tech, i) => (
-              <TechItem key={tech.nom} tech={tech} index={i} />
+              <TechItem key={tech.nom} tech={tech} index={i} but={but} />
             ))}
           </div>
 
@@ -106,7 +140,7 @@ function Competences() {
       <div className="section-header">
         <h2 className="section-title">Mes Compétences</h2>
         <p className="section-subtitle">
-          Les 6 compétences du BUT Informatique — clique sur une carte pour voir le détail.
+          Cette page présente l'évolution de mes connaissances entre le BUT1 et le BUT2 ainsi que les principaux outils et technologies que j'ai pu découvrir.
         </p>
       </div>
 

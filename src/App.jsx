@@ -8,6 +8,7 @@ import Accueil     from "./components/Accueil";
 import APropos     from "./components/APropos";
 import Competences from "./components/Competences";
 import Projets     from "./components/Projets";
+import ProjetDetail from "./components/ProjetDetail";
 import Contact     from "./components/Contact";
 import Footer      from "./components/Footer";
 import Particles   from "./components/Particles";
@@ -21,6 +22,33 @@ function ScrollToTop() {
   }, [pathname]);
 
   return null;
+}
+
+// Contenu de l'app : a besoin d'être à l'intérieur du BrowserRouter pour
+// pouvoir utiliser useLocation et masquer navbar/footer sur la page de détail projet
+function AppContent({ menuOuvert, setMenuOuvert }) {
+  const { pathname } = useLocation();
+  const estPageDetailProjet = /^\/projets\/.+/.test(pathname);
+
+  return (
+    <>
+      <ScrollToTop />
+      {!estPageDetailProjet && (
+        <Navbar menuOuvert={menuOuvert} setMenuOuvert={setMenuOuvert} />
+      )}
+
+      <Routes>
+        <Route path="/" element={<Accueil />} />
+        <Route path="/apropos" element={<APropos />} />
+        <Route path="/competences" element={<Competences />} />
+        <Route path="/projets" element={<Projets />} />
+        <Route path="/projets/:id" element={<ProjetDetail />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+
+      {!estPageDetailProjet && <Footer />}
+    </>
+  );
 }
 
 function App() {
@@ -43,18 +71,7 @@ function App() {
           />
         </div>
 
-        <ScrollToTop />
-        <Navbar menuOuvert={menuOuvert} setMenuOuvert={setMenuOuvert} />
-
-        <Routes>
-          <Route path="/" element={<Accueil />} />
-          <Route path="/apropos" element={<APropos />} />
-          <Route path="/competences" element={<Competences />} />
-          <Route path="/projets" element={<Projets />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-
-        <Footer />
+        <AppContent menuOuvert={menuOuvert} setMenuOuvert={setMenuOuvert} />
       </div>
     </BrowserRouter>
   );
