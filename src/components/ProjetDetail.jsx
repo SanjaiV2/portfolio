@@ -97,16 +97,18 @@ function ProjetDetail() {
         </div>
 
         <aside className="projet-detail-sidebar">
-          <div className="projet-sidebar-bloc">
-            <h4 className="projet-bloc-titre">Compétences mobilisées</h4>
-            <div className="projet-competences">
-              {projet.competences.map((ue) => (
-                <span key={ue} className="projet-competence-badge">
-                  {ue}
-                </span>
-              ))}
+          {projet.competences?.length > 0 && (
+            <div className="projet-sidebar-bloc">
+              <h4 className="projet-bloc-titre">Compétences mobilisées</h4>
+              <div className="projet-competences">
+                {projet.competences.map((ue) => (
+                  <span key={ue} className="projet-competence-badge">
+                    {ue}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           <div className="projet-sidebar-bloc">
             <h4 className="projet-bloc-titre">Technologies utilisées</h4>
