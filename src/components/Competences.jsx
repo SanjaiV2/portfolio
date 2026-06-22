@@ -111,9 +111,20 @@ function Competences() {
       </div>
 
       <div className="ue-list">
-        {competences.map((ue) => (
-          <UECard key={ue.id} ue={ue} />
-        ))}
+        <div className="ue-col">
+          {competences
+            .filter((_, i) => i % 2 === 0)
+            .map((ue) => (
+              <UECard key={ue.id} ue={ue} />
+            ))}
+        </div>
+        <div className="ue-col">
+          {competences
+            .filter((_, i) => i % 2 === 1)
+            .map((ue) => (
+              <UECard key={ue.id} ue={ue} />
+            ))}
+        </div>
       </div>
 
       {/* Section des outils qui défilent */}
