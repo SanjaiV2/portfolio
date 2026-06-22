@@ -81,17 +81,33 @@ const projets = [
   },
   {
     id: "projet3",
-    code: "SAÉ 1.01",
-    titre: "Jeu d'échecs",
+    code: "SAÉ 2.01",
+    titre: "Jeu d'échecs en Java",
     vignette: "/projets/echecs.png",
     images: [],
-    objectif: "À compléter.",
-    travailGroupe: [],
-    monRole: [],
-    resultat: "À compléter.",
-    apprentissage: "À compléter.",
-    competences: [],
-    technologies: [{ nom: "Java", logo: DEVICON("java") }],
+    objectif:
+      "L'objectif de cette SAÉ était de développer un jeu d'échecs entièrement jouable dans un terminal en Java. Le programme devait gérer le déplacement des différentes pièces, l'affichage de l'échiquier, l'alternance des joueurs ainsi que le respect des principales règles du jeu.",
+    travailGroupe: [
+      "Réflexion sur l'architecture orientée objet du projet",
+      "Répartition des classes à développer",
+      "Mise en commun et intégration des différentes parties du programme",
+      "Vérification du bon déroulement d'une partie complète",
+    ],
+    monRole: [
+      "La conception des classes représentant les différentes pièces",
+      "L'implémentation des déplacements autorisés pour chaque pièce",
+      "La gestion de l'échiquier et des interactions entre les pièces",
+      "Les tests et corrections des erreurs rencontrées pendant le développement",
+    ],
+    resultat:
+      "À la fin du projet, nous avons obtenu un jeu d'échecs jouable directement dans le terminal. Les joueurs pouvaient déplacer leurs pièces tour à tour et visualiser l'état de l'échiquier après chaque action. Même si certaines règles avancées pourraient encore être ajoutées, le programme permettait déjà de jouer une partie classique.",
+    apprentissage:
+      "Cette SAÉ m'a permis de mieux comprendre les principes de la programmation orientée objet. J'ai appris à utiliser l'héritage pour représenter les différentes pièces du jeu, à faire interagir plusieurs classes entre elles et à réfléchir davantage à l'organisation du code avant de commencer à programmer. C'était également l'un de mes premiers projets où plusieurs centaines de lignes de code devaient fonctionner ensemble.",
+    competences: ["UE1", "UE2", "UE6"],
+    technologies: [
+      { nom: "Java", logo: DEVICON("java") },
+      { nom: "Linux", logo: DEVICON("linux") },
+    ],
   },
 ];
 
