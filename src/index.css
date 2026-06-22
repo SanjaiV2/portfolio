@@ -697,6 +697,12 @@ ul { list-style: none; }
   margin: 0 auto;
 }
 
+.ue-col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
 @media (max-width: 760px) {
   .ue-list {
     grid-template-columns: 1fr;
