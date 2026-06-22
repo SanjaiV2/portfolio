@@ -1,27 +1,33 @@
-import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 // Composant Navbar
 // Props reçues : menuOuvert et setMenuOuvert viennent de App.jsx
 function Navbar({ menuOuvert, setMenuOuvert }) {
 
-  // Les liens de navigation dans un tableau
-  // Comme ça si on veut en ajouter un, c'est facile
-  const liens = ["Accueil", "À propos", "Compétences", "Projets", "Contact"];
+  // Les liens de navigation, chacun pointe vers sa propre page
+  const liens = [
+    { label: "Accueil",     to: "/" },
+    { label: "À propos",    to: "/apropos" },
+    { label: "Compétences", to: "/competences" },
+    { label: "Projets",     to: "/projets" },
+    { label: "Contact",     to: "/contact" },
+  ];
 
   return (
     <nav className="navbar">
       <div className="logo">Sanjai.dev</div>
 
       <ul className={`nav-links ${menuOuvert ? "ouvert" : ""}`}>
-        {/* On boucle sur le tableau avec .map() */}
-        {liens.map((item) => (
-          <li key={item}>
-            <a
-              href={`#${item.toLowerCase().replace("à ", "").replace(" ", "")}`}
+        {liens.map((lien) => (
+          <li key={lien.to}>
+            <NavLink
+              to={lien.to}
+              end={lien.to === "/"}
+              className={({ isActive }) => (isActive ? "nav-link-actif" : "")}
               onClick={() => setMenuOuvert(false)}
             >
-              {item}
-            </a>
+              {lien.label}
+            </NavLink>
           </li>
         ))}
       </ul>

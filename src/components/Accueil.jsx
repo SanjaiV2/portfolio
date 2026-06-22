@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // Composant Hero
 // C'est la grande section d'accueil avec le nom et les boutons
 
@@ -9,11 +11,14 @@ function Accueil() {
         <h1 className="hero-nom">RAMASAMY Sanjai</h1>
         <h3 className="hero-poste">Étudiant en 2e année de BUT Informatique</h3>
         <p className="hero-desc">
-          Passionné par le développement web, logiciel et les nouvelles technologies.
+          À la recherche d'une alternance pour 2026
+        </p>
+        <p className="hero-domaines">
+          Développement logiciel <span className="hero-sep">•</span> Système et Réseaux
         </p>
         <div className="hero-btns">
-          <a href="#projets" className="btn">Voir mes projets</a>
-          <a href="#contact" className="btn btn-outline">Me contacter</a>
+          <Link to="/projets" className="btn">Voir mes projets</Link>
+          <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline">Mon CV</a>
         </div>
       </div>
     </section>

@@ -1,29 +1,62 @@
 import { useState } from "react";
-
-// On importe les données depuis le dossier data/
-// Le ".." remonte d'un dossier (de components/ vers src/)
 import competences from "../data/competences";
 
-// Petit composant pour une seule carte de compétence
-// On le met ici car il est uniquement utilisé dans Competences.jsx
-function CarteCompetence({ competence }) {
-  // useState pour l'animation au survol
-  const [survole, setSurvole] = useState(false);
-
+// Une ligne technologie : logo (ou emoji de repli) + barre de niveau
+function TechItem({ tech, index }) {
   return (
-    <div
-      className={`skill-card ${survole ? "animee" : ""}`}
-      onMouseEnter={() => setSurvole(true)}
-      onMouseLeave={() => setSurvole(false)}
-    >
-      <span className="skill-icone">{competence.icone}</span>
-      <h3>{competence.titre}</h3>
-      <p>{competence.details}</p>
+    <div className="tech-item" style={{ animationDelay: `${index * 0.06}s` }}>
+      <div className="tech-icone">
+        {tech.logo ? (
+          <img src={tech.logo} alt={tech.nom} />
+        ) : (
+          <span className="tech-emoji">{tech.emoji}</span>
+        )}
+      </div>
+      <span className="tech-nom">{tech.nom}</span>
+      <div className="tech-niveau-bar">
+        <div
+          className="tech-niveau-fill"
+          style={{ width: `${(tech.niveau / 5) * 100}%` }}
+        />
+      </div>
     </div>
   );
 }
 
-// Composant principal de la section compétences
+// Une carte UE en accordéon
+function UECard({ ue }) {
+  const [ouvert, setOuvert] = useState(false);
+
+  return (
+    <div className={`ue-card ${ouvert ? "ue-card--ouvert" : ""}`}>
+      <button
+        className="ue-header"
+        onClick={() => setOuvert(!ouvert)}
+        aria-expanded={ouvert}
+      >
+        <span className="ue-badge">{ue.code}</span>
+        <span className="ue-titre">{ue.titre}</span>
+        <span className="ue-chevron">▾</span>
+      </button>
+
+      {ouvert && (
+        <div className="ue-body">
+          <div className="ue-tech-grid">
+            {ue.technologies.map((tech, i) => (
+              <TechItem key={tech.nom} tech={tech} index={i} />
+            ))}
+          </div>
+
+          <div className="ue-apprentissage">
+            <span className="ue-apprentissage-label">Ce que j'ai appris</span>
+            <p>{ue.apprentissage}</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function Competences() {
   const outils = [
     {
@@ -69,12 +102,17 @@ function Competences() {
   ];
 
   return (
-    <section id="compétences" className="container">
-      <h2 className="section-title">Mes Compétences</h2>
-      <div className="skills-grid">
-        {/* On boucle sur le tableau importé depuis data/competences.js */}
-        {competences.map((competence) => (
-          <CarteCompetence key={competence.id} competence={competence} />
+    <section id="competences" className="container section-competences">
+      <div className="section-header">
+        <h2 className="section-title">Mes Compétences</h2>
+        <p className="section-subtitle">
+          Les 6 compétences du BUT Informatique — clique sur une carte pour voir le détail.
+        </p>
+      </div>
+
+      <div className="ue-list">
+        {competences.map((ue) => (
+          <UECard key={ue.id} ue={ue} />
         ))}
       </div>
 
@@ -83,14 +121,12 @@ function Competences() {
         <h3 className="outils-title">Mes Outils</h3>
         <div className="outils-marquee">
           <div className="outils-track">
-            {/* Première copie pour l'effet infini */}
             {outils.map((outil, index) => (
               <div key={`first-${index}`} className="outil-item">
                 <img src={outil.logo} alt={outil.alt} className="outil-logo" />
                 <span className="outil-nom">{outil.nom}</span>
               </div>
             ))}
-            {/* Deuxième copie pour l'effet infini */}
             {outils.map((outil, index) => (
               <div key={`second-${index}`} className="outil-item">
                 <img src={outil.logo} alt={outil.alt} className="outil-logo" />

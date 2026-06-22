@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 // Composant Footer
 // Le bas de page avec informations de contact et liens
 
@@ -20,11 +22,11 @@ function Footer() {
         <div className="footer-section">
           <h4>Navigation</h4>
           <ul className="footer-links">
-            <li><a href="#accueil">Accueil</a></li>
-            <li><a href="#apropos">À propos</a></li>
-            <li><a href="#competences">Compétences</a></li>
-            <li><a href="#projets">Projets</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><Link to="/">Accueil</Link></li>
+            <li><Link to="/apropos">À propos</Link></li>
+            <li><Link to="/competences">Compétences</Link></li>
+            <li><Link to="/projets">Projets</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
         
@@ -39,7 +41,7 @@ function Footer() {
       
       <div className="footer-bottom">
         <p>© 2024 RAMASAMY Sanjai. Tous droits réservés.</p>
-        <a href="#accueil" className="back-to-top">Retour en haut ↑</a>
+        <Link to="/" className="back-to-top">Retour en haut ↑</Link>
       </div>
     </footer>
   );

@@ -137,6 +137,14 @@ ul { list-style: none; }
   width: 100%;
 }
 
+.nav-links a.nav-link-actif {
+  color: var(--primary);
+}
+
+.nav-links a.nav-link-actif::after {
+  width: 100%;
+}
+
 .hamburger {
   display: none;
   background: none;
@@ -200,9 +208,23 @@ ul { list-style: none; }
 .hero-desc {
   color: var(--gray);
   font-size: 1rem;
-  margin-bottom: 36px;
+  margin-bottom: 12px;
   animation: fadeSlideUp 0.7s ease both;
   animation-delay: 0.7s;
+}
+
+.hero-domaines {
+  color: var(--primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 36px;
+  animation: fadeSlideUp 0.7s ease both;
+  animation-delay: 0.8s;
+}
+
+.hero-sep {
+  color: var(--gray);
+  margin: 0 6px;
 }
 
 .hero-btns {
@@ -445,7 +467,7 @@ ul { list-style: none; }
 .timeline {
   position: relative;
   display: grid;
-  gap: 20px;
+  gap: 28px;
   padding-left: 36px;
 }
 
@@ -541,57 +563,314 @@ ul { list-style: none; }
   }
 }
 
+/* Pourquoi l'informatique (carte Profil) */
+.apropos-question .eyebrow {
+  margin-bottom: 14px;
+}
+
+.eyebrow--violet {
+  background: rgba(124, 58, 237, 0.14) !important;
+  color: #d4b8ff !important;
+}
+
+.apropos-question p {
+  color: var(--gray);
+  font-size: 1.04rem;
+  line-height: 1.85;
+}
+
+/* Mon évolution, intégré dans la carte Profil */
+.evolution-inline {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.evolution-inline .eyebrow {
+  margin-bottom: 14px;
+}
+
+.evolution-but-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.evolution-but-bloc {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.evolution-but-titre {
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.evolution-but-soustitre {
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.evolution-but-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.evolution-but-liste li {
+  font-size: 0.88rem;
+  color: var(--gray);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.evolution-but-liste li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+.about-col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 100%;
+}
+
+.objectif-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.objectif-card p {
+  color: var(--gray);
+  font-size: 1.04rem;
+  line-height: 1.85;
+}
+
+@media (max-width: 760px) {
+  .evolution-but-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* =============================================
-   COMPÉTENCES + ANIMATIONS AU SURVOL
+   COMPÉTENCES — accordéon des 6 UE du BUT
    ============================================= */
 
-@keyframes rebond {
-  0%   { transform: translateY(0); }
-  30%  { transform: translateY(-12px); }
-  60%  { transform: translateY(-5px); }
-  100% { transform: translateY(0); }
-}
-
-@keyframes pulse-bordure {
-  0%   { box-shadow: 0 0 0px var(--primary); }
-  50%  { box-shadow: 0 0 18px var(--primary); }
-  100% { box-shadow: 0 0 0px var(--primary); }
-}
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-}
-
-.skill-card {
-  background: var(--card-bg);
-  border-radius: 10px;
-  padding: 30px 20px;
+.section-competences .section-header {
   text-align: center;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-  border: 2px solid transparent;
-  cursor: default;
+  max-width: 720px;
+  margin: 0 auto 48px;
 }
 
-.skill-card.animee {
-  transform: translateY(-6px);
-  border-color: var(--primary);
-  animation: pulse-bordure 1.2s ease infinite;
+@keyframes ueFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.skill-icone {
-  font-size: 2.5rem;
-  display: inline-block;
-  margin-bottom: 12px;
+@keyframes techFadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-.skill-card.animee .skill-icone {
-  animation: rebond 0.5s ease forwards;
+@keyframes niveauGrow {
+  from { width: 0%; }
 }
 
-.skill-card h3 { font-size: 1rem; margin-bottom: 8px; }
-.skill-card p { color: var(--gray); font-size: 0.85rem; }
+.ue-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: start;
+  gap: 18px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (max-width: 760px) {
+  .ue-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ue-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.ue-card:hover {
+  border-color: rgba(0, 188, 212, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.ue-card--ouvert {
+  border-color: rgba(0, 188, 212, 0.32);
+}
+
+.ue-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 26px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: var(--text);
+}
+
+.ue-badge {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(0, 188, 212, 0.2), rgba(124, 58, 237, 0.18));
+  color: #b6f3ff;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 7px 16px;
+  border-radius: 999px;
+  letter-spacing: 0.03em;
+}
+
+.ue-titre {
+  flex: 1;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.ue-chevron {
+  flex-shrink: 0;
+  color: var(--primary);
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.ue-card--ouvert .ue-chevron {
+  transform: rotate(180deg);
+}
+
+.ue-body {
+  padding: 4px 26px 28px;
+  animation: ueFadeIn 0.3s ease both;
+}
+
+.ue-tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 18px 14px;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  animation: techFadeUp 0.4s ease both;
+}
+
+.tech-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 188, 212, 0.3);
+  background: rgba(0, 188, 212, 0.06);
+}
+
+.tech-icone {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-icone img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.tech-emoji {
+  font-size: 1.7rem;
+  line-height: 1;
+}
+
+.tech-nom {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+}
+
+.tech-niveau-bar {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.tech-niveau-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--primary), #7c3aed);
+  animation: niveauGrow 0.7s ease both;
+}
+
+.ue-apprentissage {
+  background: rgba(0, 188, 212, 0.05);
+  border-left: 3px solid var(--primary);
+  border-radius: 0 14px 14px 0;
+  padding: 16px 20px;
+}
+
+.ue-apprentissage-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.ue-apprentissage p {
+  font-size: 0.92rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  .ue-header {
+    padding: 18px 18px;
+    gap: 12px;
+  }
+
+  .ue-titre {
+    font-size: 0.95rem;
+  }
+
+  .ue-body {
+    padding: 4px 18px 22px;
+  }
+}
 
 /* =============================================
    OUTILS
