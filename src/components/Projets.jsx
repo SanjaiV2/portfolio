@@ -1,44 +1,44 @@
-import { useState } from "react";
-
-// On importe les données depuis le dossier data/
+import { Link } from "react-router-dom";
 import projets from "../data/projets";
 
-// Petit composant pour une seule carte de projet
-function CarteProjet({ projet }) {
-  const [survole, setSurvole] = useState(false);
+function ProjetCard({ projet }) {
+  const apercu = projet.technologies.slice(0, 4);
+  const vignette = projet.vignette || projet.images?.[0];
 
   return (
-    <div
-      className={`project-card ${survole ? "survole" : ""}`}
-      onMouseEnter={() => setSurvole(true)}
-      onMouseLeave={() => setSurvole(false)}
-    >
-      <h3>{projet.titre}</h3>
-      <p>{projet.description}</p>
-
-      {/* On affiche les tags avec un .map() */}
-      <div className="tags">
-        {projet.tags.map((tag) => (
-          <span key={tag}>{tag}</span>
-        ))}
+    <Link to={`/projets/${projet.id}`} className="projet-card">
+      <div className="projet-thumbnail">
+        {vignette && <img src={vignette} alt={projet.titre} />}
       </div>
 
-      <a href={projet.lien} className="link">
-        GitHub →
-      </a>
-    </div>
+      <div className="projet-card-content">
+        <h3 className="projet-titre">{projet.titre}</h3>
+        <div className="projet-langs">
+          {apercu.map((tech) => (
+            <span key={tech.nom} className="projet-lang-badge">
+              {tech.nom}
+            </span>
+          ))}
+        </div>
+      </div>
+    </Link>
   );
 }
 
-// Composant principal de la section projets
 function Projets() {
   return (
-    <section id="projets" className="container">
-      <h2 className="section-title">Mes Projets</h2>
-      <div className="projects-grid">
-        {/* On boucle sur le tableau importé depuis data/projets.js */}
+    <section id="projets" className="container section-projets">
+      <div className="section-header">
+        <h2 className="section-title">Mes Projets</h2>
+        <p className="section-subtitle">
+          Les principaux projets et SAÉ réalisés durant mon BUT Informatique — clique sur un
+          projet pour voir le détail.
+        </p>
+      </div>
+
+      <div className="projets-grille">
         {projets.map((projet) => (
-          <CarteProjet key={projet.id} projet={projet} />
+          <ProjetCard key={projet.id} projet={projet} />
         ))}
       </div>
     </section>
