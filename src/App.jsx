@@ -9,6 +9,7 @@ import APropos     from "./components/APropos";
 import Competences from "./components/Competences";
 import Projets     from "./components/Projets";
 import ProjetDetail from "./components/ProjetDetail";
+import Stage       from "./components/Stage";
 import Contact     from "./components/Contact";
 import Footer      from "./components/Footer";
 import Particles   from "./components/Particles";
@@ -43,6 +44,7 @@ function AppContent({ menuOuvert, setMenuOuvert }) {
         <Route path="/competences" element={<Competences />} />
         <Route path="/projets" element={<Projets />} />
         <Route path="/projets/:id" element={<ProjetDetail />} />
+        <Route path="/stage" element={<Stage />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
 

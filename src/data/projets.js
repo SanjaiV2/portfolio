@@ -8,6 +8,7 @@ const SIMPLEICON = (slug, hex) => `https://cdn.simpleicons.org/${slug}/${hex}`;
 const projets = [
   {
     id: "projet1",
+    type: "sae",
     code: "SAÉ 3.01",
     titre: "Application de gestion des colis",
     images: [
@@ -50,6 +51,7 @@ const projets = [
   },
   {
     id: "projet2",
+    type: "sae",
     code: "SAÉ 2.03",
     titre: "Installation de services réseaux",
     vignette: "/projets/reseau-services.png",
@@ -81,6 +83,7 @@ const projets = [
   },
   {
     id: "projet3",
+    type: "sae",
     code: "SAÉ 2.01",
     titre: "Jeu d'échecs en Java",
     vignette: "/projets/echecs.png",
@@ -111,8 +114,9 @@ const projets = [
   },
   {
     id: "projet4",
+    type: "personnel",
     code: "Personnel",
-    titre: "Portfolio personnel (en cours)",
+    titre: "Portfolio personnel",
     vignette: "/projets/portfolio-accueil.png",
     images: [],
     objectif:
