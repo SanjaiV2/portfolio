@@ -84,7 +84,7 @@ const projets = [
     code: "SAÉ 2.01",
     titre: "Jeu d'échecs en Java",
     vignette: "/projets/echecs.png",
-    images: [],
+    images: ["/projets/echecs-terminal.png"],
     objectif:
       "L'objectif de cette SAÉ était de développer un jeu d'échecs entièrement jouable dans un terminal en Java. Le programme devait gérer le déplacement des différentes pièces, l'affichage de l'échiquier, l'alternance des joueurs ainsi que le respect des principales règles du jeu.",
     travailGroupe: [
@@ -107,6 +107,34 @@ const projets = [
     technologies: [
       { nom: "Java", logo: DEVICON("java") },
       { nom: "Linux", logo: DEVICON("linux") },
+    ],
+  },
+  {
+    id: "projet4",
+    code: "Personnel",
+    titre: "Portfolio personnel (en cours)",
+    vignette: "/projets/portfolio-accueil.png",
+    images: [],
+    objectif:
+      "L'objectif de ce projet est de concevoir un portfolio permettant de présenter mon parcours, mes compétences, mes réalisations ainsi que mon projet professionnel à travers une interface claire et agréable à parcourir.",
+    travailGroupe: [],
+    monRole: [
+      "Conception de l'interface utilisateur",
+      "Développement du site web",
+      "Organisation des différentes rubriques",
+      "Sélection des projets à présenter",
+      "Rédaction des analyses réflexives",
+      "Mise en place de composants interactifs",
+    ],
+    resultat:
+      "Le portfolio est aujourd'hui fonctionnel et regroupe mes principales réalisations du BUT. Il continue d'évoluer au fur et à mesure que j'ajoute de nouveaux contenus et améliore certaines parties de l'interface.",
+    apprentissage:
+      "Ce projet m'a permis de prendre du recul sur les compétences acquises depuis mon arrivée en BUT et de mieux identifier les domaines dans lesquels je me sens à l'aise ainsi que ceux que je souhaite encore approfondir. J'ai également davantage réfléchi à la manière de présenter des informations de façon synthétique et à l'importance de l'ergonomie lors de la conception d'une interface.",
+    competences: [],
+    technologies: [
+      { nom: "JavaScript", logo: DEVICON("javascript") },
+      { nom: "React", logo: DEVICON("react") },
+      { nom: "Vite", logo: DEVICON("vitejs") },
     ],
   },
 ];
