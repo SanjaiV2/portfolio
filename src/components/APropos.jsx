@@ -4,9 +4,9 @@
 function APropos() {
   const parcours = [
     {
-      year: "2021 - 2022",
-      school: "Lycée Mozart",
-      details: "en général (à Le Blanc-Mesnil)"
+      year: "2024 - en cours",
+      school: "Université de Villetaneuse",
+      details: "2e année de BUT informatique (à Villetaneuse)"
     },
     {
       year: "2022 - 2024",
@@ -14,9 +14,9 @@ function APropos() {
       details: "en STI2D (à Aulnay-sous-Bois)"
     },
     {
-      year: "2024 - en cours",
-      school: "Université de Villetaneuse",
-      details: "2e année de BUT informatique (à Villetaneuse)"
+      year: "2021 - 2022",
+      school: "Lycée Mozart",
+      details: "en général (à Le Blanc-Mesnil)"
     }
   ];
 
@@ -43,12 +43,49 @@ function APropos() {
     }
   ];
 
+  const experiences = [
+    {
+      poste: "Stagiaire Support Système & Réseau",
+      periode: "Février 2026 — Avril 2026",
+      entreprise: "LOGIN – Saint-Ouen-l'Aumône",
+      taches: [
+        "Traitement des tickets et assistance aux utilisateurs via FreshService et TeamViewer",
+        "Diagnostic et résolution d'incidents (VPN, imprimantes, logiciels, accès utilisateurs)",
+        "Préparation et déploiement de postes informatiques avec WDS et Microsoft 365",
+        "Développement d'un script PowerShell pour automatiser la gestion des appels manqués",
+        "Participation au déploiement de la MFA pour plus de 300 utilisateurs"
+      ]
+    },
+    {
+      poste: "Caissier",
+      periode: "Juin 2023 — Août 2023",
+      entreprise: "Alim Générale Neuilly-sur-Marne",
+      taches: [
+        "Accueil professionnel des clients, répondant à leurs besoins avec courtoisie",
+        "Comptage du fonds de caisse, rangement de la monnaie et des espèces",
+        "Rangement et entretien continu de la zone de caisse",
+        "Communication claire avec les clients pour répondre à leurs questions ou résoudre rapidement les problèmes"
+      ]
+    },
+    {
+      poste: "Informaticien",
+      periode: "Mai 2024 — Août 2024",
+      entreprise: "Alim Générale Neuilly-sur-Marne",
+      taches: [
+        "Installation de nouveaux matériels et équipements informatiques (logiciels, antivirus, imprimantes, ordinateurs)",
+        "Réalisation des mises à jour systèmes et logiciels",
+        "Diagnostic et résolution d'incidents (logiciels, matériels, systèmes, téléphonie et réseaux)",
+        "Mise en place de solutions de sauvegarde et de récupération de données"
+      ]
+    }
+  ];
+
   return (
     <section id="apropos" className="container section-apropos">
       <div className="section-header">
         <h2 className="section-title">À propos de moi</h2>
         <p className="section-subtitle">
-          J'explique mon profil et mon parcours de façon élégante, claire et structurée.
+          Mon parcours depuis le lycée, les domaines qui m'intéressent et les expériences qui m'ont permis de progresser.
         </p>
       </div>
 
@@ -111,6 +148,24 @@ function APropos() {
               d'approfondir ces domaines et de préciser mon projet professionnel.
             </p>
           </article>
+        </div>
+      </div>
+
+      <div className="experience-section">
+        <h3 className="sous-titre-section">Expérience professionnelle</h3>
+        <div className="experience-grid">
+          {experiences.map((exp, index) => (
+            <div key={index} className="experience-card">
+              <span className="experience-periode">{exp.periode}</span>
+              <h4 className="experience-poste">{exp.poste}</h4>
+              <p className="experience-entreprise">{exp.entreprise}</p>
+              <ul className="experience-liste">
+                {exp.taches.map((t, i) => (
+                  <li key={i}>{t}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </div>
     </section>

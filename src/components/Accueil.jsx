@@ -11,7 +11,7 @@ function Accueil() {
         <h1 className="hero-nom">RAMASAMY Sanjai</h1>
         <h3 className="hero-poste">Étudiant en 2e année de BUT Informatique</h3>
         <p className="hero-desc">
-          À la recherche d'une alternance pour 2026
+          À la recherche d'une alternance pour 2026/2027
         </p>
         <p className="hero-domaines">
           Développement logiciel <span className="hero-sep">•</span> Système et Réseaux
