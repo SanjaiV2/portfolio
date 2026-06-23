@@ -10,13 +10,12 @@ function Footer() {
         <div className="footer-section">
           <h3>RAMASAMY Sanjai</h3>
           <p>Étudiant en BUT Informatique</p>
-          <p>Développeur Full Stack en devenir</p>
         </div>
-        
+
         <div className="footer-section">
           <h4>Contact</h4>
-          <p>Email: votre.email@example.com</p>
-          <p>LinkedIn: linkedin.com/in/votreprofil</p>
+          <p>Email: ramasamy.sanjai27@gmail.com</p>
+          <p>LinkedIn: linkedin.com/in/sanjai-ramasamy-2851a5333</p>
         </div>
         
         <div className="footer-section">
@@ -33,14 +32,14 @@ function Footer() {
         <div className="footer-section">
           <h4>Réseaux sociaux</h4>
           <div className="social-links">
-            <a href="https://github.com/votre-github" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://linkedin.com/in/votre-linkedin" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/SanjaiV2" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/sanjai-ramasamy-2851a5333/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           </div>
         </div>
       </div>
       
       <div className="footer-bottom">
-        <p>© 2024 RAMASAMY Sanjai. Tous droits réservés.</p>
+        <p>© {new Date().getFullYear()} RAMASAMY Sanjai. Tous droits réservés.</p>
         <Link to="/" className="back-to-top">Retour en haut ↑</Link>
       </div>
     </footer>

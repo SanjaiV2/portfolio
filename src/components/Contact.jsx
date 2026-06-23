@@ -34,8 +34,8 @@ function Contact() {
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         {
-          from_name: champs.nom,
-          from_email: champs.email,
+          name: champs.nom,
+          email: champs.email,
           message: champs.message,
         },
         { publicKey: EMAILJS_PUBLIC_KEY }
@@ -60,52 +60,79 @@ function Contact() {
         Je suis à la recherche d'un stage ou d'une alternance.
       </p>
 
-      <div className="contact-form-container">
-        {envoye ? (
-          <div className="succes-message">
-            <p>✅ Message envoyé ! Je vous répondrai dès que possible.</p>
-            <button onClick={() => setEnvoye(false)}>
-              Envoyer un autre message
-            </button>
+      <div className="contact-layout">
+        <div className="contact-form-container">
+          {envoye ? (
+            <div className="succes-message">
+              <p>Votre message a été envoyé !</p>
+              <button onClick={() => setEnvoye(false)}>
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="contact-form">
+              <input
+                type="text"
+                name="nom"
+                placeholder="Votre nom"
+                value={champs.nom}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Votre email"
+                value={champs.email}
+                onChange={handleChange}
+                required
+              />
+              <textarea
+                name="message"
+                placeholder="Votre message..."
+                rows="5"
+                value={champs.message}
+                onChange={handleChange}
+                required
+              />
+
+              {erreur && (
+                <p className="contact-erreur">
+                  ❌ L'envoi a échoué. Réessayez ou contactez-moi directement par email.
+                </p>
+              )}
+
+              <button type="submit" className="btn" disabled={envoiEnCours}>
+                {envoiEnCours ? "Envoi en cours..." : "Envoyer le message"}
+              </button>
+            </form>
+          )}
+        </div>
+
+        <div className="contact-cartes">
+          <div className="contact-carte">
+            <h3>Email</h3>
+            <p>ramasamy.sanjai27@gmail.com</p>
           </div>
-        ) : (
-          <form onSubmit={handleSubmit} className="contact-form">
-            <input
-              type="text"
-              name="nom"
-              placeholder="Votre nom"
-              value={champs.nom}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Votre email"
-              value={champs.email}
-              onChange={handleChange}
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Votre message..."
-              rows="5"
-              value={champs.message}
-              onChange={handleChange}
-              required
-            />
 
-            {erreur && (
-              <p className="contact-erreur">
-                ❌ L'envoi a échoué. Réessayez ou contactez-moi directement par email.
-              </p>
-            )}
+          <div className="contact-carte">
+            <h3>LinkedIn</h3>
+            <a
+              href="https://www.linkedin.com/in/sanjai-ramasamy-2851a5333/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline btn-petit"
+            >
+              Voir le profil
+            </a>
+          </div>
 
-            <button type="submit" className="btn" disabled={envoiEnCours}>
-              {envoiEnCours ? "Envoi en cours..." : "Envoyer le message"}
-            </button>
-          </form>
-        )}
+          <div className="contact-carte">
+            <h3>CV</h3>
+            <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-petit">
+              Télécharger mon CV
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
