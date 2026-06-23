@@ -10,6 +10,7 @@ function Navbar({ menuOuvert, setMenuOuvert }) {
     { label: "À propos",    to: "/apropos" },
     { label: "Compétences", to: "/competences" },
     { label: "Projets",     to: "/projets" },
+    { label: "Stage",       to: "/stage" },
     { label: "Contact",     to: "/contact" },
   ];
 

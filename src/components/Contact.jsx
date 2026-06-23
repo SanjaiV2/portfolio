@@ -1,32 +1,56 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 // Composant Contact
-// Contient le formulaire avec useState pour gérer les champs
+// Envoie un vrai email via EmailJS (aucun backend nécessaire)
+
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 function Contact() {
-  // Un seul useState avec un objet pour les 3 champs du formulaire
   const [champs, setChamps] = useState({
     nom: "",
     email: "",
     message: "",
   });
 
-  // useState pour savoir si le message a été envoyé
   const [envoye, setEnvoye] = useState(false);
+  const [envoiEnCours, setEnvoiEnCours] = useState(false);
+  const [erreur, setErreur] = useState(false);
 
-  // Cette fonction met à jour le bon champ quand on tape
   function handleChange(e) {
     const { name, value } = e.target;
-    // "...champs" garde les autres champs intacts
     setChamps({ ...champs, [name]: value });
   }
 
-  // Cette fonction s'exécute quand on clique sur "Envoyer"
   function handleSubmit(e) {
-    e.preventDefault(); // Empêche le rechargement de la page
-    console.log("Message envoyé :", champs);
-    setEnvoye(true);
-    setChamps({ nom: "", email: "", message: "" }); // Remet les champs à vide
+    e.preventDefault();
+    setEnvoiEnCours(true);
+    setErreur(false);
+
+    emailjs
+      .send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: champs.nom,
+          from_email: champs.email,
+          message: champs.message,
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      )
+      .then(() => {
+        setEnvoye(true);
+        setChamps({ nom: "", email: "", message: "" });
+      })
+      .catch((err) => {
+        console.error("Erreur EmailJS :", err);
+        setErreur(true);
+      })
+      .finally(() => {
+        setEnvoiEnCours(false);
+      });
   }
 
   return (
@@ -37,7 +61,6 @@ function Contact() {
       </p>
 
       <div className="contact-form-container">
-        {/* Affichage conditionnel : message de succès ou formulaire */}
         {envoye ? (
           <div className="succes-message">
             <p>✅ Message envoyé ! Je vous répondrai dès que possible.</p>
@@ -71,8 +94,15 @@ function Contact() {
               onChange={handleChange}
               required
             />
-            <button type="submit" className="btn">
-              Envoyer le message
+
+            {erreur && (
+              <p className="contact-erreur">
+                ❌ L'envoi a échoué. Réessayez ou contactez-moi directement par email.
+              </p>
+            )}
+
+            <button type="submit" className="btn" disabled={envoiEnCours}>
+              {envoiEnCours ? "Envoi en cours..." : "Envoyer le message"}
             </button>
           </form>
         )}
