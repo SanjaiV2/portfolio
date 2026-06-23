@@ -33,14 +33,20 @@ function Navbar({ menuOuvert, setMenuOuvert }) {
         ))}
       </ul>
 
-      {/* Bouton hamburger pour mobile */}
-      <button
-        className="hamburger"
-        onClick={() => setMenuOuvert(!menuOuvert)}
-        aria-label="Menu"
-      >
-        {menuOuvert ? "✕" : "☰"}
-      </button>
+      <div className="navbar-droite">
+        <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="nav-cv-btn">
+          CV
+        </a>
+
+        {/* Bouton hamburger pour mobile */}
+        <button
+          className="hamburger"
+          onClick={() => setMenuOuvert(!menuOuvert)}
+          aria-label="Menu"
+        >
+          {menuOuvert ? "✕" : "☰"}
+        </button>
+      </div>
     </nav>
   );
 }

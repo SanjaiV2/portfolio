@@ -1,11 +1,30 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import competences from "../data/competences";
+import projets from "../data/projets";
+
+// Cherche le premier projet qui utilise la techno donnée (par nom).
+// "HTML / CSS" est éclaté pour matcher "HTML5" et "CSS3" séparément.
+function trouverProjetPourTech(nomTech) {
+  const parties = nomTech.split("/").map((p) => p.trim().toLowerCase());
+  const correspond = (nomProjetTech) => {
+    const n = nomProjetTech.trim().toLowerCase();
+    return parties.length > 1
+      ? parties.some((p) => n.startsWith(p))
+      : n === parties[0];
+  };
+
+  const projet = projets.find((p) => p.technologies.some((t) => correspond(t.nom)));
+  return projet?.id ?? null;
+}
 
 // Une ligne technologie : logo (ou emoji de repli) + barre de niveau
 // `but` vaut "but1" ou "but2" et sélectionne quel pourcentage piloter la barre
 function TechItem({ tech, index, but }) {
-  return (
-    <div className="tech-item" style={{ animationDelay: `${index * 0.06}s` }}>
+  const projetId = trouverProjetPourTech(tech.nom);
+
+  const contenu = (
+    <>
       <div className="tech-icone">
         {tech.logo ? (
           <img src={tech.logo} alt={tech.nom} />
@@ -17,6 +36,25 @@ function TechItem({ tech, index, but }) {
       <div className="tech-niveau-bar">
         <div className="tech-niveau-fill" style={{ width: `${tech[but]}%` }} />
       </div>
+    </>
+  );
+
+  if (projetId) {
+    return (
+      <Link
+        to={`/projets/${projetId}`}
+        className="tech-item tech-item--clickable"
+        style={{ animationDelay: `${index * 0.06}s` }}
+        title={`Voir le projet utilisant ${tech.nom}`}
+      >
+        {contenu}
+      </Link>
+    );
+  }
+
+  return (
+    <div className="tech-item" style={{ animationDelay: `${index * 0.06}s` }}>
+      {contenu}
     </div>
   );
 }
