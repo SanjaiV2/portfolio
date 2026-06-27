@@ -66,8 +66,8 @@ function Accueil() {
           Développement logiciel <span className="hero-sep">•</span> Système et Réseaux
         </p>
         <div className="hero-btns">
+          <Link to="/apropos" className="btn btn-outline">Voir Présentation</Link>
           <Link to="/projets" className="btn">Voir mes projets</Link>
-          <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline">Mon CV</a>
         </div>
       </div>
     </section>
