@@ -128,7 +128,7 @@ function Contact() {
 
           <div className="contact-carte">
             <h3>CV</h3>
-            <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-petit">
+            <a href="/Sanjai_CV.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-petit">
               Télécharger mon CV
             </a>
           </div>
