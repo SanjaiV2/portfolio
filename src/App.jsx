@@ -12,7 +12,6 @@ import ProjetDetail from "./components/ProjetDetail";
 import Stage       from "./components/Stage";
 import Contact     from "./components/Contact";
 import Footer      from "./components/Footer";
-import Particles   from "./components/Particles";
 
 // Remonte en haut de page à chaque changement de route
 function ScrollToTop() {
@@ -59,19 +58,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
-        <div className="background-root">
-          <Particles
-            particleColors={["#0d67de", "#00bcd4", "#7c3aed"]}
-            particleCount={3000}
-            particleSpread={12}
-            speed={0.2}
-            particleBaseSize={80}
-            moveParticlesOnHover
-            alphaParticles
-            disableRotation={false}
-            pixelRatio={1}
-          />
-        </div>
+        <div className="background-root" />
 
         <AppContent menuOuvert={menuOuvert} setMenuOuvert={setMenuOuvert} />
       </div>
