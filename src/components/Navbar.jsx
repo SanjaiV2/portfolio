@@ -34,7 +34,7 @@ function Navbar({ menuOuvert, setMenuOuvert }) {
       </ul>
 
       <div className="navbar-droite">
-        <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" className="nav-cv-btn">
+        <a href="/Sanjai_CV.pdf" target="_blank" rel="noopener noreferrer" className="nav-cv-btn">
           CV
         </a>
 
