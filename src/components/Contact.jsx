@@ -57,7 +57,7 @@ function Contact() {
     <section id="contact" className="container contact-section">
       <h2 className="section-title">Me contacter</h2>
       <p className="contact-sous-titre">
-        Je suis à la recherche d'un stage ou d'une alternance.
+        Je suis à la recherche d'un stage de fin d'études à partir du 08/03/2027, d'une durée de 14 à 16 semaines.
       </p>
 
       <div className="contact-layout">
@@ -117,7 +117,7 @@ function Contact() {
           <div className="contact-carte">
             <h3>LinkedIn</h3>
             <a
-              href="https://www.linkedin.com/in/sanjai-ramasamy-2851a5333/"
+              href="https://www.linkedin.com/in/sanjai2712/"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-outline btn-petit"
