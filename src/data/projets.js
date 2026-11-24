@@ -39,7 +39,6 @@ const projets = [
       "À la fin du projet, nous avons obtenu une application web fonctionnelle permettant de suivre les devis, les commandes et les colis. Les différents rôles disposent de leurs propres pages et fonctionnalités. Le projet est aujourd'hui terminé et fonctionne conformément aux objectifs que nous nous étions fixés au départ. Même si l'application répond aux besoins initiaux, certaines fonctionnalités pourraient encore être améliorées ou complétées afin de faciliter son évolution et son utilisation au quotidien.",
     apprentissage:
       "Cette SAÉ m'a surtout appris à travailler sur une application plus importante et plus complexe que celles réalisées auparavant. J'ai découvert l'architecture MVC, utilisé pour la première fois une bibliothèque externe comme TCPDF et davantage travaillé avec Git sur un projet partagé avec plusieurs personnes. J'ai aussi appris à écrire des requêtes SQL plus complexes avec PDO, à mieux comprendre les relations entre les tables d'une base de données et à résoudre des erreurs parfois difficiles à trouver. Enfin, ce projet m'a montré qu'il était important de bien s'organiser, d'échanger régulièrement avec les autres membres du groupe et de répartir les tâches pour éviter de prendre du retard.",
-    competences: ["UE1", "UE2", "UE4", "UE5", "UE6"],
     technologies: [
       { nom: "PHP", logo: DEVICON("php") },
       { nom: "HTML5", logo: DEVICON("html5") },
@@ -73,7 +72,6 @@ const projets = [
       "À la fin de la SAÉ, l'ensemble des services demandés était correctement installé et configuré. J'étais capable d'héberger des pages PHP reliées à une base de données MariaDB, de transférer des fichiers via FTP, de me connecter à distance en SSH avec une paire de clés et d'analyser des échanges réseau avec Wireshark. Cette SAÉ m'a permis d'obtenir une machine Linux disposant de plusieurs services fonctionnels et utilisables pour les futurs TP et projets liés aux réseaux.",
     apprentissage:
       "Cette SAÉ m'a permis d'aller plus loin sur des notions que j'avais déjà découvertes avant le BUT. J'ai appris à installer et configurer plusieurs services sous Linux, à comprendre leur fonctionnement et à modifier leurs paramètres selon un besoin précis. J'ai aussi découvert des outils comme Wireshark et mieux compris comment circulent les données sur un réseau grâce à l'analyse des paquets échangés.",
-    competences: ["UE3"],
     technologies: [
       { nom: "Linux", logo: DEVICON("linux") },
       { nom: "MariaDB", logo: DEVICON("mariadb") },
@@ -106,10 +104,44 @@ const projets = [
       "À la fin du projet, nous avons obtenu un jeu d'échecs jouable directement dans le terminal. Les joueurs pouvaient déplacer leurs pièces tour à tour et visualiser l'état de l'échiquier après chaque action. Même si certaines règles avancées pourraient encore être ajoutées, le programme permettait déjà de jouer une partie classique.",
     apprentissage:
       "Cette SAÉ m'a permis de mieux comprendre les principes de la programmation orientée objet. J'ai appris à utiliser l'héritage pour représenter les différentes pièces du jeu, à faire interagir plusieurs classes entre elles et à réfléchir davantage à l'organisation du code avant de commencer à programmer. C'était également l'un de mes premiers projets où plusieurs centaines de lignes de code devaient fonctionner ensemble.",
-    competences: ["UE1", "UE2", "UE6"],
     technologies: [
       { nom: "Java", logo: DEVICON("java") },
       { nom: "Linux", logo: DEVICON("linux") },
+    ],
+  },
+  {
+    id: "projet5",
+    type: "sae",
+    code: "SAÉ 1.01",
+    titre: "Analyse d'un réseau social en Python",
+    vignette: "/projets/python-communautes-1.png",
+    images: [
+      "/projets/python-communautes-1.png",
+      "/projets/python-communautes-2.png",
+    ],
+    objectif:
+      "L'objectif de cette SAÉ, réalisée en binôme, était d'étudier la structure de communautés au sein d'un réseau social modélisé en Python. Il s'agissait de représenter les interactions entre les membres d'un réseau sous différentes formes (tableaux, dictionnaires) puis de développer des fonctions permettant d'en extraire des informations, comme le nombre d'amis d'une personne, la taille du réseau ou les membres les plus populaires.",
+    travailGroupe: [
+      "Modélisation des interactions d'un réseau à partir d'un tableau de prénoms",
+      "Lecture et extraction des données d'un réseau depuis des fichiers CSV",
+      "Conversion du réseau en dictionnaire associant chaque personne à ses amis",
+      "Développement des fonctions d'analyse (nombre d'amis, taille du réseau, personnes les plus populaires)",
+      "Tests sur plusieurs jeux de données (réseaux fournis en fichiers CSV)",
+    ],
+    monRole: [
+      "Implémentation des fonctions de lecture des fichiers CSV, avec suppression des doublons",
+      "Écriture des fonctions de comptage (nombre d'amis, taille du réseau)",
+      "Participation à la conception du dictionnaire modélisant le réseau",
+      "Recherche des personnes les plus populaires à partir du dictionnaire",
+      "Tests des fonctions sur les différents réseaux fournis",
+    ],
+    resultat:
+      "À la fin de cette SAÉ, nous disposions d'un ensemble de fonctions permettant de charger un réseau social à partir d'un fichier CSV, de le modéliser sous forme de dictionnaire, puis d'en extraire des statistiques simples comme le nombre d'amis d'une personne ou les membres les plus populaires. Ces fonctions ont été testées avec succès sur plusieurs réseaux fournis en exemple.",
+    apprentissage:
+      "Cette SAÉ m'a permis de manipuler plus sérieusement les structures de données de base en Python (tableaux et dictionnaires) et de les utiliser pour résoudre un problème concret plutôt que des exercices isolés. J'ai appris à lire et nettoyer des données issues de fichiers CSV, à éviter les doublons lors de la lecture, et à choisir la structure de données la plus adaptée selon le traitement à effectuer. Travailler en binôme m'a aussi appris à organiser le code pour qu'il reste lisible et compréhensible par quelqu'un d'autre.",
+    technologies: [
+      { nom: "Python", logo: DEVICON("python") },
+      { nom: "CSV", emoji: "📄" },
     ],
   },
   {
@@ -134,7 +166,6 @@ const projets = [
       "Le portfolio est aujourd'hui fonctionnel et regroupe mes principales réalisations du BUT. Il continue d'évoluer au fur et à mesure que j'ajoute de nouveaux contenus et améliore certaines parties de l'interface.",
     apprentissage:
       "Ce projet m'a permis de prendre du recul sur les compétences acquises depuis mon arrivée en BUT et de mieux identifier les domaines dans lesquels je me sens à l'aise ainsi que ceux que je souhaite encore approfondir. J'ai également davantage réfléchi à la manière de présenter des informations de façon synthétique et à l'importance de l'ergonomie lors de la conception d'une interface.",
-    competences: [],
     technologies: [
       { nom: "JavaScript", logo: DEVICON("javascript") },
       { nom: "React", logo: DEVICON("react") },

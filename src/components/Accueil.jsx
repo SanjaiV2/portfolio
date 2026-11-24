@@ -13,10 +13,10 @@ function Accueil() {
           RAMASAMY <span className="accent">Sanjai</span>
         </h1>
 
-        <h3 className="hero-poste">Étudiant en 2ᵉ année de BUT Informatique</h3>
+        <h3 className="hero-poste">Étudiant en 3ᵉ année de BUT Informatique</h3>
 
         <p className="hero-desc">
-          À la recherche d'une alternance pour 2026/2027
+          À la recherche d'un stage de fin d'études à partir du 08/03/2027, d'une durée de 14 à 16 semaines
         </p>
 
         <p className="hero-domaines">
@@ -24,7 +24,7 @@ function Accueil() {
         </p>
 
         <p className="hero-signature">
-          Esprit d'équipe sur le terrain de badminton, même rigueur derrière un clavier.
+          La rigueur que j'applique à mon code, je l'applique aussi au reste.
         </p>
 
         <div className="hero-btns">

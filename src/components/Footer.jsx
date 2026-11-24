@@ -15,9 +15,12 @@ function Footer() {
         <div className="footer-section">
           <h4>Contact</h4>
           <p>Email: ramasamy.sanjai27@gmail.com</p>
-          <p>LinkedIn: linkedin.com/in/sanjai-ramasamy-2851a5333</p>
+          <div className="social-links">
+            <a href="https://github.com/SanjaiV2" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.linkedin.com/in/sanjai2712/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
         </div>
-        
+
         <div className="footer-section">
           <h4>Navigation</h4>
           <ul className="footer-links">
@@ -25,16 +28,9 @@ function Footer() {
             <li><Link to="/apropos">À propos</Link></li>
             <li><Link to="/competences">Compétences</Link></li>
             <li><Link to="/projets">Projets</Link></li>
+            <li><Link to="/stage">Stage</Link></li>
             <li><Link to="/contact">Contact</Link></li>
           </ul>
-        </div>
-        
-        <div className="footer-section">
-          <h4>Réseaux sociaux</h4>
-          <div className="social-links">
-            <a href="https://github.com/SanjaiV2" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://www.linkedin.com/in/sanjai-ramasamy-2851a5333/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </div>
         </div>
       </div>
       

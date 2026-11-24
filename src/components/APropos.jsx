@@ -6,7 +6,7 @@ function APropos() {
     {
       year: "2024 - en cours",
       school: "Université de Villetaneuse",
-      details: "2e année de BUT informatique (à Villetaneuse)"
+      details: "3e année de BUT informatique (à Villetaneuse)"
     },
     {
       year: "2022 - 2024",
@@ -144,8 +144,9 @@ function APropos() {
             <div className="eyebrow">Mon objectif</div>
             <p>
               Je m'oriente principalement vers le développement logiciel, tout en conservant un
-              intérêt pour l'administration système et les réseaux. Une alternance me permettrait
-              d'approfondir ces domaines et de préciser mon projet professionnel.
+              intérêt pour l'administration système et les réseaux. Je recherche un stage de fin
+              d'études à partir du 08/03/2027, d'une durée de 14 à 16 semaines, pour mettre ces
+              compétences en pratique et préciser mon projet professionnel.
             </p>
           </article>
         </div>

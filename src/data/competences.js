@@ -1,7 +1,7 @@
-// Données des 6 compétences (UE) du BUT Informatique
-// Chaque technologie a un logo (CDN devicon/simpleicons) ou un emoji de repli,
-// et deux niveaux de progression en % (BUT1 / BUT2) qui pilotent uniquement la
-// largeur de la barre visuelle — le pourcentage n'est jamais affiché en texte.
+// Compétences techniques, regroupées par domaine (front, back, bases de
+// données, outils) plutôt que par UE du BUT.
+// "depart" = niveau en début de BUT1, "niveau" = niveau actuel (BUT2).
+// Les deux pilotent uniquement la barre visuelle, jamais affichés en chiffres.
 
 const DEVICON = (name, variant = "original") =>
   `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${name}/${name}-${variant}.svg`;
@@ -9,80 +9,57 @@ const SIMPLEICON = (slug, hex) => `https://cdn.simpleicons.org/${slug}/${hex}`;
 
 const competences = [
   {
-    id: "ue1",
-    code: "UE1",
-    titre: "Réaliser un développement d'application",
-    apprentissage:
-      "J'ai appris à concevoir des applications plus complètes, en passant de petits programmes à des projets répondant à un besoin précis.",
+    id: "frontend",
+    label: "Front-end",
+    description: "Construire des interfaces claires et agréables à utiliser.",
     technologies: [
-      { nom: "Java", logo: DEVICON("java"), but1: 40, but2: 60 },
-      { nom: "PHP", logo: DEVICON("php"), but1: 30, but2: 55 },
-      { nom: "JavaScript", logo: DEVICON("javascript"), but1: 45, but2: 75 },
-      { nom: "Vue", logo: DEVICON("vuejs"), but1: 10, but2: 50 },
-      { nom: "Express", logo: SIMPLEICON("express", "ffffff"), but1: 10, but2: 50 },
-      { nom: "Android", logo: DEVICON("android"), but1: 10, but2: 45 },
-      { nom: "TypeScript", logo: DEVICON("typescript"), but1: 35, but2: 40 },
-      { nom: "HTML / CSS", logo: DEVICON("html5"), but1: 30, but2: 60 },
+      { nom: "HTML / CSS", logo: DEVICON("html5"), depart: 30, niveau: 60 },
+      { nom: "JavaScript", logo: DEVICON("javascript"), depart: 45, niveau: 75 },
+      { nom: "React", logo: DEVICON("react"), depart: 15, niveau: 55 },
+      { nom: "TypeScript", logo: DEVICON("typescript"), depart: 35, niveau: 40 },
+      { nom: "Vue", logo: DEVICON("vuejs"), depart: 10, niveau: 50 },
+      { nom: "Android", logo: DEVICON("android"), depart: 10, niveau: 45 },
     ],
   },
   {
-    id: "ue2",
-    code: "UE2",
-    titre: "Optimiser des applications informatiques",
-    apprentissage:
-      "Cette compétence m'a surtout appris qu'une application qui fonctionne n'est pas forcément une bonne application, et qu'il faut aussi penser à la qualité du code et aux performances.",
+    id: "backend",
+    label: "Back-end",
+    description: "Faire tourner la logique métier et les règles derrière l'app.",
     technologies: [
-      { nom: "JUnit", logo: DEVICON("junit", "plain"), but1: 30, but2: 50 },
-      { nom: "Python", logo: DEVICON("python"), but1: 45, but2: 75 },
-      { nom: "C", logo: DEVICON("c"), but1: 10, but2: 40 },
+      { nom: "Java", logo: DEVICON("java"), depart: 40, niveau: 60 },
+      { nom: "PHP", logo: DEVICON("php"), depart: 30, niveau: 55 },
+      { nom: "Python", logo: DEVICON("python"), depart: 45, niveau: 75 },
+      { nom: "Express", logo: SIMPLEICON("express", "ffffff"), depart: 10, niveau: 50 },
+      { nom: "JUnit", logo: DEVICON("junit", "plain"), depart: 30, niveau: 50 },
+      { nom: "C", logo: DEVICON("c"), depart: 10, niveau: 40 },
     ],
   },
   {
-    id: "ue3",
-    code: "UE3",
-    titre: "Administrer des systèmes informatiques communicants",
-    apprentissage:
-      "J'avais déjà un intérêt pour les systèmes et les réseaux avant le BUT. Cette compétence m'a surtout appris à utiliser Linux plus facilement, à configurer des machines virtuelles et à mettre en place certains services réseau.",
+    id: "bdd",
+    label: "Base de données",
+    description: "Modéliser, stocker et interroger les données proprement.",
     technologies: [
-      { nom: "Linux", logo: DEVICON("linux"), but1: 30, but2: 80 },
-      { nom: "VirtualBox", logo: SIMPLEICON("virtualbox", "2F61B4"), but1: 30, but2: 75 },
-      { nom: "Wireshark", logo: SIMPLEICON("wireshark", "1679A7"), but1: 25, but2: 45 },
+      { nom: "MySQL", logo: DEVICON("mysql"), depart: 20, niveau: 50 },
+      { nom: "MariaDB", logo: DEVICON("mariadb"), depart: 15, niveau: 55 },
+      { nom: "PostgreSQL", logo: DEVICON("postgresql"), depart: 30, niveau: 60 },
+      { nom: "MongoDB", logo: DEVICON("mongodb"), depart: 10, niveau: 40 },
     ],
   },
   {
-    id: "ue4",
-    code: "UE4",
-    titre: "Gérer des données de l'information",
-    apprentissage:
-      "J'ai appris à concevoir des bases de données plus efficacement, à mieux structurer les données et à écrire des requêtes SQL plus complexes pour les exploiter.",
+    id: "outils",
+    label: "Outils & Système",
+    description: "Ce qui entoure le code : versioning, système, réseau, design.",
     technologies: [
-      { nom: "MySQL", logo: DEVICON("mysql"), but1: 20, but2: 50 },
-      { nom: "MongoDB", logo: DEVICON("mongodb"), but1: 10, but2: 40 },
-      { nom: "PostgreSQL", logo: DEVICON("postgresql"), but1: 30, but2: 60 },
-    ],
-  },
-  {
-    id: "ue5",
-    code: "UE5",
-    titre: "Conduire un projet",
-    apprentissage:
-      "Cette compétence m'a appris à mieux organiser mon travail, à répartir les tâches au sein d'un groupe et à utiliser des outils comme Git pour suivre l'avancement d'un projet.",
-    technologies: [
-      { nom: "Git", logo: DEVICON("git"), but1: 20, but2: 40 },
-      { nom: "GitHub", logo: SIMPLEICON("github", "ffffff"), but1: 40, but2: 75 },
-      { nom: "Trello", logo: SIMPLEICON("trello", "0052CC"), but1: 20, but2: 45 },
-    ],
-  },
-  {
-    id: "ue6",
-    code: "UE6",
-    titre: "Travailler dans une équipe informatique",
-    apprentissage:
-      "Cette compétence m'a appris à travailler plus efficacement en équipe, à partager mon code avec Git et à échanger davantage avec les autres membres pour résoudre des problèmes ou prendre des décisions.",
-    technologies: [
-      { nom: "Git", logo: DEVICON("git"), but1: 20, but2: 40 },
-      { nom: "Figma", logo: SIMPLEICON("figma", "ffffff"), but1: 10, but2: 30 },
-      { nom: "GitHub", logo: SIMPLEICON("github", "ffffff"), but1: 40, but2: 75 },
+      { nom: "Git", logo: DEVICON("git"), depart: 20, niveau: 40 },
+      { nom: "GitHub", logo: SIMPLEICON("github", "ffffff"), depart: 40, niveau: 75 },
+      { nom: "Linux", logo: DEVICON("linux"), depart: 30, niveau: 80 },
+      { nom: "VS Code", logo: DEVICON("vscode"), depart: 40, niveau: 80 },
+      { nom: "VirtualBox", logo: SIMPLEICON("virtualbox", "2F61B4"), depart: 30, niveau: 75 },
+      { nom: "Wireshark", logo: SIMPLEICON("wireshark", "1679A7"), depart: 25, niveau: 45 },
+      { nom: "Trello", logo: SIMPLEICON("trello", "0052CC"), depart: 20, niveau: 45 },
+      { nom: "Figma", logo: SIMPLEICON("figma", "ffffff"), depart: 10, niveau: 30 },
+      { nom: "Canva", logo: DEVICON("canva"), depart: 20, niveau: 50 },
+      { nom: "Office 365", logo: SIMPLEICON("libreoffice", "18A303"), depart: 30, niveau: 60 },
     ],
   },
 ];
