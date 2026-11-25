@@ -9,6 +9,8 @@
   --card-bg: #1c1c1c;
   /* Courbe de décélération douce, pour des transitions plus fluides que le "ease" par défaut */
   --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Courbe régulière (accélère puis ralentit), pour un mouvement qui se voit "parcourir" — balayages, remplissages */
+  --ease-flow: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 * {
@@ -78,9 +80,9 @@ ul { list-style: none; }
 }
 
 .logo {
-  font-family: 'Anton', 'Poppins', sans-serif;
+  font-family: 'Oswald', 'Poppins', sans-serif;
   font-size: 1.6rem;
-  font-weight: 400;
+  font-weight: 600;
   background: linear-gradient(135deg, var(--primary) 0%, #ffb703 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -119,10 +121,12 @@ ul { list-style: none; }
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0;
+  width: 100%;
   height: 2px;
   background: linear-gradient(90deg, var(--primary), #ffb703);
-  transition: width 0.3s var(--ease-smooth);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.45s var(--ease-flow);
 }
 
 .nav-links a:hover {
@@ -130,7 +134,7 @@ ul { list-style: none; }
 }
 
 .nav-links a:hover::after {
-  width: 100%;
+  transform: scaleX(1);
 }
 
 .nav-links a.nav-link-actif {
@@ -138,7 +142,7 @@ ul { list-style: none; }
 }
 
 .nav-links a.nav-link-actif::after {
-  width: 100%;
+  transform: scaleX(1);
 }
 
 .navbar-droite {
@@ -149,6 +153,8 @@ ul { list-style: none; }
 }
 
 .nav-cv-btn {
+  position: relative;
+  isolation: isolate;
   border: 1px solid var(--primary);
   color: var(--primary);
   font-weight: 700;
@@ -158,12 +164,26 @@ ul { list-style: none; }
   padding: 8px 20px;
   clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
   text-decoration: none;
-  transition: background 0.25s var(--ease-smooth), color 0.25s var(--ease-smooth);
+  transition: color 0.6s var(--ease-flow);
+}
+
+.nav-cv-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.6s var(--ease-flow);
 }
 
 .nav-cv-btn:hover {
-  background: var(--primary);
   color: var(--darker-bg);
+}
+
+.nav-cv-btn:hover::before {
+  transform: scaleX(1);
 }
 
 .hamburger {
@@ -201,7 +221,8 @@ ul { list-style: none; }
 /* Chaque élément du hero a une animation d'apparition décalée */
 .hero-badge {
   display: inline-block;
-  font-family: 'Anton', 'Poppins', sans-serif;
+  font-family: 'Oswald', 'Poppins', sans-serif;
+  font-weight: 600;
   letter-spacing: 0.08em;
   font-size: 0.95rem;
   color: var(--darker-bg);
@@ -213,8 +234,8 @@ ul { list-style: none; }
 }
 
 .hero-nom {
-  font-family: 'Anton', 'Poppins', sans-serif;
-  font-weight: 400;
+  font-family: 'Oswald', 'Poppins', sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   font-size: clamp(2.4rem, 6vw, 4.4rem);
   line-height: 1.05;
@@ -317,16 +338,34 @@ ul { list-style: none; }
 }
 
 .btn-outline {
+  position: relative;
+  isolation: isolate;
   background: transparent;
   border: 2px solid var(--primary);
   color: var(--primary);
   padding: 11px 28px;
   clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+  transition: color 0.6s var(--ease-flow), transform 0.3s var(--ease-smooth);
+}
+
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--primary);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.6s var(--ease-flow);
 }
 
 .btn-outline:hover {
-  background-color: var(--primary);
+  background-color: transparent;
   color: var(--darker-bg);
+}
+
+.btn-outline:hover::before {
+  transform: scaleX(1);
 }
 
 /* =============================================
@@ -775,8 +814,8 @@ ul { list-style: none; }
 }
 
 .skill-card-titre {
-  font-family: 'Anton', 'Poppins', sans-serif;
-  font-weight: 400;
+  font-family: 'Oswald', 'Poppins', sans-serif;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   font-size: 1.3rem;
