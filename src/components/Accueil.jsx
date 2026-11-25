@@ -7,8 +7,6 @@ function Accueil() {
   return (
     <section id="accueil" className="hero">
       <div className="hero-content">
-        <span className="hero-badge">N°01 · Dev</span>
-
         <h1 className="hero-nom">
           RAMASAMY <span className="accent">Sanjai</span>
         </h1>
