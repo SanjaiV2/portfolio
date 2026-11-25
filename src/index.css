@@ -219,20 +219,6 @@ ul { list-style: none; }
 }
 
 /* Chaque élément du hero a une animation d'apparition décalée */
-.hero-badge {
-  display: inline-block;
-  font-family: 'Oswald', 'Poppins', sans-serif;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  font-size: 0.95rem;
-  color: var(--darker-bg);
-  background: var(--primary);
-  padding: 6px 16px;
-  clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
-  animation: fadeSlideUp 0.5s var(--ease-smooth) both;
-  animation-delay: 0.05s;
-}
-
 .hero-nom {
   font-family: 'Oswald', 'Poppins', sans-serif;
   font-weight: 700;
