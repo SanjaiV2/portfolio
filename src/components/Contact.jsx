@@ -65,8 +65,6 @@ function Contact() {
           {envoye ? (
             <div className="succes-message">
               <p>Votre message a été envoyé !</p>
-              <button onClick={() => setEnvoye(false)}>
-              </button>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="contact-form">
